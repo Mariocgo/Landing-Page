@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+ <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -37,8 +39,6 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="index.html"><span>GAS: San Juan</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -47,7 +47,7 @@
           <li><a href="#beneficios">Beneficios</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#sobreNosotros">Sobre Nosotros</a></li>
-          <li><a href="#contact">Contactanos</a></li>
+          <li><a href="#contact">Contáctanos</a></li>
           
         </ul>
       </nav><!-- .nav-menu -->
@@ -59,7 +59,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="fade-up">
       <h1>Bienvenido a GAS: SAN JUAN</h1>
-      <h2>NUESTRO EQUIPO ESTA LISTO PARA AYUDARTE</h2>
+      <h2>NUESTRO EQUIPO ESTÁ LISTO PARA AYUDARTE</h2>
       <a href="#beneficios" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
     </div>
   </section><!-- End Hero -->
@@ -167,7 +167,7 @@
             <div class="count-box">
               <i class="icofont-simple-smile"></i>
               <span data-toggle="counter-up">23,000</span>
-              <p><strong>Reseñas Positivas</strong> Que mejoran nuestro trabajo</p>
+              <p><strong>Reseñas Positivas</strong> que mejoran nuestro trabajo</p>
             </div>
           </div>
 
@@ -175,7 +175,7 @@
             <div class="count-box">
               <i class="icofont-document-folder"></i>
               <span data-toggle="counter-up">521</span>
-              <p><strong>Facturas emitidas</strong> Para ahorrarte tiempo</p>
+              <p><strong>Facturas emitidas</strong> para ahorrarte tiempo</p>
             </div>
           </div>
 
@@ -183,7 +183,7 @@
             <div class="count-box">
               <i class="icofont-live-support"></i>
               <span data-toggle="counter-up">1,463</span>
-              <p><strong>Clientes aserados</strong> Para llevar una mejor administración de su gasolina</p>
+              <p><strong>Clientes aserados</strong> para llevar una mejor administración de su gasolina</p>
             </div>
           </div>
 
@@ -220,7 +220,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Contactanos</h2>
+          <h2>Contáctanos</h2>
           <p>Nuestro equipo está a la orden del día con tus comentarios y sugerencias, ayúdanos a mejorar con tu opinión.</p>
         </div>
 
@@ -258,7 +258,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post" role="form" class="php-email-form" mailto="mario@jarkol.com">
+            <form action="" method="post" role="form" class="php-email-form" >
            
               <div class="form-row">
                 <div class="col-md-6 form-group">
@@ -271,32 +271,26 @@
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="tu número telefónico" pattern="[0-9]{10}"data-rule="minlen:10" data-msg="Ingrese al menos 10 digitos" />
+                <input type="text" class="form-control" name="number" id="nu" placeholder="Tu número telefónico" pattern="[0-9]{10}"data-rule="minlen:10" data-msg="Ingrese al menos 10 digitos" />
                 <div class="validate"></div>
               </div>
               
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
 
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="CheckPromo">
-                <label class="form-check-label" for="CheckPromo">Me interesa recibir promociones y beneficios</label>
+                <label class="form-check-label" name="CheckPromo"for="CheckPromo">Me interesa recibir promociones y beneficios</label>
               </div>
 
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="CheckLealtad">
                 <label class="form-check-label" for="CheckLealtad">Quiero participar en el programa de lealtad</label>
               </div>
-              <div class="text-center" hre>
-                <button type="submit" [href]="mailto:mario.dzul.5@hotmail.com?subject=Prueba&body=Suscrito al sistema de canje">Suscribirme</button>
+              <div class="text-center">
+                <button type="submit" value="Send Email" onclick="sendEmail()">Suscribirme</submit>
               </div>
-
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="CheckPolitica">
-                <label class="form-check-label" for="CheckPolitica">He leído y acepto la política de privacidad.</label>
+                <label class="form-check-label" name="CheckPolitica" for="CheckPolitica">He leído y acepto la política de privacidad.</label>
               </div>
               <div class="form-group form-check">
                 <a href="/Privacidad.html">Política de privacidad</a>
@@ -319,7 +313,7 @@
           <div class="col-lg-12 col-md-8">
             <div class="footer-info" data-aos="fade-up" data-aos-delay="50">
               <h3>Gas: San Juan</h3>
-              <p class="pb-3"><em>NUESTRO EQUIPO ESTA LISTO PARA AYUDARTE.</em></p>
+              <p class="pb-3"><em>NUESTRO EQUIPO ESTÁ LISTO PARA AYUDARTE.</em></p>
               <p>
                 Calle 69 539, Centro<br>
                 97000 Mérida, Yuc.<br><br>
