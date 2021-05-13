@@ -195,25 +195,64 @@ const inputs = document.querySelector('form')
 
 function sendEmail(){
   if(!inputs.elements["name"].value == "" && !inputs.elements["email"].value == "" && !inputs.elements["number"].value == "" && !inputs.elements["CheckPolitica"].checked == ""){
-    Email.send({
-      Host : "smtp.mailtrap.io",
-      Username : "bb4b81af4c023f",
-      Password : "55ac444634f6e8",
-      To : 'lagas-SanJuan@website.com',
-      From : inputs.elements["email"].value,
-      Subject : "Se ha unido " + inputs.elements["name"].value,
-      Body : "Nombre: " +inputs.elements["name"].value + "<br>"
-            +"Correo: " +inputs.elements["email"].value+"<br>"
-            +"Numero: " +inputs.elements["number"].value+"<br>"
-            +"Acepto Promociones: " +inputs.elements["CheckPromo"].checked+"<br>"
-            +"Deseo unirme al programa de lealtad: " +inputs.elements["CheckLealtad"].checked+"<br>"
-            +"Politica: " +inputs.elements["CheckPolitica"].checked+"<br>"
-  }).then(
-    message => alert(message)
-  );
+    
+    if((validarTexto(inputs.elements["name"].value) == true)&&(validarNumero(inputs.elements["number"].value) == true)){
+      Email.send({
+        Host : "smtp.mailtrap.io",
+        Username : "bb4b81af4c023f",
+        Password : "55ac444634f6e8",
+        To : 'lagas-SanJuan@website.com',
+        From : inputs.elements["email"].value,
+        Subject : "Se ha unido " + inputs.elements["name"].value,
+        Body : "Nombre: " +inputs.elements["name"].value + "<br>"
+              +"Correo: " +inputs.elements["email"].value+"<br>"
+              +"Numero: " +inputs.elements["number"].value+"<br>"
+              +"Acepto Promociones: " +inputs.elements["CheckPromo"].checked+"<br>"
+              +"Deseo unirme al programa de lealtad: " +inputs.elements["CheckLealtad"].checked+"<br>"
+              +"Politica: " +inputs.elements["CheckPolitica"].checked+"<br>"
+    }).then(
+      message => alert(message),
+      limpiar()
+    );
+
+    }else{
+      if(validarTexto(inputs.elements["name"].value) == false){
+        alert("El campo 'Nombre' sólo acepta texto")
+        inputs.elements["name"].value="";
+      }else if(validarNumero(inputs.elements["number"].value) == false){
+        alert("El campo 'Número' sólo acepta numeros")
+        inputs.elements["number"].value="";
+      }
+    }
   }else{
-    console.log("No hay nombre")
     alert("Revisa todos los campos")
+  }
+
+  
+}
+
+function limpiar(){
+  inputs.elements["name"].value="";
+  inputs.elements["email"].value="";
+  inputs.elements["number"].value="";
+  inputs.elements["CheckPromo"].checked="";
+  inputs.elements["CheckLealtad"].checked="";
+  inputs.elements["CheckPolitica"].checked="";
+}
+
+function validarTexto(parametro){
+  var patron= /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]*$/;
+  if(parametro.search(patron)){
+    return false;
+  }else{
+    return true;
   }
 }
 
+function validarNumero(parametro){
+  if(!/^([0-9])*$/.test(parametro)){
+    return false;
+  }else{
+    return true;
+  }
+}

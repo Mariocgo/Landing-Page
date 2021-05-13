@@ -60,6 +60,7 @@
     <div class="hero-container" data-aos="fade-up">
       <h1>Bienvenido a GAS: SAN JUAN</h1>
       <h2>NUESTRO EQUIPO ESTÁ LISTO PARA AYUDARTE</h2>
+      <!--<iframe src="https://petrointelligence.com/api/api_precios.html?consulta=estado&estado=YUC" class="precio"width="500px" height="170px" frameborder="2"></iframe>-->
       <a href="#beneficios" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
     </div>
   </section><!-- End Hero -->
@@ -262,7 +263,7 @@
            
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres" />
+                  <input type="text" name="name" class="form-control" id="name" pattern="[a-zA-Z]+" placeholder="Tu nombre" required="text"data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
@@ -336,11 +337,7 @@
       <div class="copyright text-center">
         &copy; Copyright <strong><span>Mariocgo</span></strong>. All Rights Reserved
       </div>
-      <div class="credits">
-      
-       
-      </div>
-    </div>
+  </div>
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
