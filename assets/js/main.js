@@ -204,14 +204,15 @@ function sendEmail(){
         To : 'lagas-SanJuan@website.com',
         From : inputs.elements["email"].value,
         Subject : "Se ha unido " + inputs.elements["name"].value,
-        Body : "Nombre: " +inputs.elements["name"].value + "<br>"
-              +"Correo: " +inputs.elements["email"].value+"<br>"
-              +"Numero: " +inputs.elements["number"].value+"<br>"
-              +"Acepto Promociones: " +inputs.elements["CheckPromo"].checked+"<br>"
-              +"Deseo unirme al programa de lealtad: " +inputs.elements["CheckLealtad"].checked+"<br>"
-              +"Politica: " +inputs.elements["CheckPolitica"].checked+"<br>"
+        Body : "Nombre: " +inputs.elements["name"].value +","+ "<br>"
+              +"Correo: " +inputs.elements["email"].value+","+"<br>"
+              +"Numero: " +inputs.elements["number"].value+","+"<br>"
+              +"Acepto Promociones: " +inputs.elements["CheckPromo"].checked+","+"<br>"
+              +"Deseo unirme al programa de lealtad: " +inputs.elements["CheckLealtad"].checked+","+"<br>"
+              +"Politica: " +inputs.elements["CheckPolitica"].checked
     }).then(
       message => alert(message),
+     // window.alert("Se han enviado los datos con éxito"),
       limpiar()
     );
 
@@ -220,7 +221,7 @@ function sendEmail(){
         alert("El campo 'Nombre' sólo acepta texto")
         inputs.elements["name"].value="";
       }else if(validarNumero(inputs.elements["number"].value) == false){
-        alert("El campo 'Número' sólo acepta numeros")
+        alert("El campo 'Número' sólo acepta numeros y deben ser 10 digitos")
         inputs.elements["number"].value="";
       }
     }
@@ -250,7 +251,7 @@ function validarTexto(parametro){
 }
 
 function validarNumero(parametro){
-  if(!/^([0-9])*$/.test(parametro)){
+  if(!/^([0-9]{10})*$/.test(parametro)){
     return false;
   }else{
     return true;
